@@ -32,7 +32,7 @@
             promoCode = new Button();
             viewStaff = new Button();
             editInventory = new Button();
-            button1 = new Button();
+            logoutButton = new Button();
             saleReport = new Button();
             managerProfile = new Button();
             SuspendLayout();
@@ -93,19 +93,21 @@
             editInventory.Text = "Edit Inventory";
             editInventory.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // logoutButton
             // 
-            button1.BackColor = Color.LightPink;
-            button1.Cursor = Cursors.Hand;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Impact", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Crimson;
-            button1.Location = new Point(617, 131);
-            button1.Name = "button1";
-            button1.Size = new Size(171, 51);
-            button1.TabIndex = 10;
-            button1.Text = "Log Out";
-            button1.UseVisualStyleBackColor = false;
+            logoutButton.BackColor = Color.LightPink;
+            logoutButton.Cursor = Cursors.Hand;
+            logoutButton.FlatStyle = FlatStyle.Popup;
+            logoutButton.Font = new Font("Impact", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logoutButton.ForeColor = Color.Crimson;
+            logoutButton.Location = new Point(617, 131);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Size = new Size(171, 51);
+            logoutButton.TabIndex = 10;
+            logoutButton.Text = "Log Out";
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += LogoutButton_Click;
+
             // 
             // saleReport
             // 
@@ -146,7 +148,7 @@
             Controls.Add(promoCode);
             Controls.Add(viewStaff);
             Controls.Add(editInventory);
-            Controls.Add(button1);
+            Controls.Add(logoutButton);
             Name = "managerDashboard";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Manager Dashboard";
@@ -159,7 +161,7 @@
         private Button promoCode;
         private Button viewStaff;
         private Button editInventory;
-        private Button button1;
+        private Button logoutButton;
         private Button saleReport;
         private Button managerProfile;
     }

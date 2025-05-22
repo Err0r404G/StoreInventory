@@ -10,17 +10,27 @@ using System.Windows.Forms;
 
 namespace StoreInventoryPos
 {
-    public partial class adminDashboard : Form
+    public partial class modifyUser : Form
     {
-        public adminDashboard()
+        public modifyUser()
         {
             InitializeComponent();
         }
 
-        private void logOut_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void roleBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LoginPage Back = new LoginPage();
+            adminDashboard Back = new adminDashboard();
             Back.Show();
         }
     }

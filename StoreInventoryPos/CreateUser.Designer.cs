@@ -1,4 +1,5 @@
-﻿namespace StoreInventoryPos
+﻿
+namespace StoreInventoryPos
 {
     partial class CreateUser
     {
@@ -38,7 +39,7 @@
             createButton = new Button();
             confirmPassword = new Label();
             CpassWordField = new TextBox();
-            back = new Button();
+            backButton = new Button();
             roleBox = new ComboBox();
             SuspendLayout();
             // 
@@ -105,6 +106,7 @@
             label1.Size = new Size(122, 28);
             label1.TabIndex = 9;
             label1.Text = "Assign Role";
+            label1.Click += label1_Click;
             // 
             // createButton
             // 
@@ -119,6 +121,7 @@
             createButton.TabIndex = 13;
             createButton.Text = "CREATE";
             createButton.UseVisualStyleBackColor = false;
+            createButton.Click += createButton_Click;
             // 
             // confirmPassword
             // 
@@ -138,19 +141,20 @@
             CpassWordField.Size = new Size(290, 27);
             CpassWordField.TabIndex = 20;
             // 
-            // back
+            // backButton
             // 
-            back.BackColor = Color.White;
-            back.Cursor = Cursors.Hand;
-            back.FlatStyle = FlatStyle.Popup;
-            back.Font = new Font("Impact", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            back.ForeColor = Color.Crimson;
-            back.Location = new Point(693, 6);
-            back.Name = "back";
-            back.Size = new Size(112, 51);
-            back.TabIndex = 21;
-            back.Text = "BACK";
-            back.UseVisualStyleBackColor = false;
+            backButton.BackColor = Color.White;
+            backButton.Cursor = Cursors.Hand;
+            backButton.FlatStyle = FlatStyle.Popup;
+            backButton.Font = new Font("Impact", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            backButton.ForeColor = Color.Crimson;
+            backButton.Location = new Point(693, 6);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(112, 51);
+            backButton.TabIndex = 21;
+            backButton.Text = "BACK";
+            backButton.UseVisualStyleBackColor = false;
+            backButton.Click += backButton_Click;
             // 
             // roleBox
             // 
@@ -161,6 +165,7 @@
             roleBox.Name = "roleBox";
             roleBox.Size = new Size(163, 28);
             roleBox.TabIndex = 22;
+            roleBox.SelectedIndexChanged += roleBox_SelectedIndexChanged;
             // 
             // CreateUser
             // 
@@ -168,7 +173,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(817, 484);
             Controls.Add(roleBox);
-            Controls.Add(back);
+            Controls.Add(backButton);
             Controls.Add(CpassWordField);
             Controls.Add(confirmPassword);
             Controls.Add(createButton);
@@ -186,6 +191,14 @@
             PerformLayout();
         }
 
+        private void roleBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // You can leave it empty if you don't want anything to happen on selection change:
+            // Or add your code here, e.g.:
+            // MessageBox.Show("Selected role: " + roleBox.SelectedItem?.ToString());
+        }
+
+
         #endregion
 
         private TextBox fNameField;
@@ -198,7 +211,7 @@
         private Button createButton;
         private Label confirmPassword;
         private TextBox CpassWordField;
-        private Button back;
+        private Button backButton;
         private ComboBox roleBox;
     }
 }

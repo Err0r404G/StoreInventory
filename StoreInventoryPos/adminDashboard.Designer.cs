@@ -31,8 +31,9 @@
             logOut = new Button();
             CreateUser = new Button();
             viewUser = new Button();
-            deleteUser = new Button();
             modifyUser = new Button();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            salesButton = new Button();
             SuspendLayout();
             // 
             // logOut
@@ -42,12 +43,13 @@
             logOut.FlatStyle = FlatStyle.Popup;
             logOut.Font = new Font("Impact", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             logOut.ForeColor = Color.Crimson;
-            logOut.Location = new Point(617, 12);
+            logOut.Location = new Point(607, 31);
             logOut.Name = "logOut";
             logOut.Size = new Size(171, 51);
             logOut.TabIndex = 5;
             logOut.Text = "Log Out";
             logOut.UseVisualStyleBackColor = false;
+            logOut.Click += logOut_Click;
             // 
             // CreateUser
             // 
@@ -77,20 +79,6 @@
             viewUser.Text = "View User";
             viewUser.UseVisualStyleBackColor = false;
             // 
-            // deleteUser
-            // 
-            deleteUser.BackColor = Color.LightSteelBlue;
-            deleteUser.Cursor = Cursors.Hand;
-            deleteUser.FlatStyle = FlatStyle.Popup;
-            deleteUser.Font = new Font("Impact", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            deleteUser.ForeColor = Color.Black;
-            deleteUser.Location = new Point(37, 336);
-            deleteUser.Name = "deleteUser";
-            deleteUser.Size = new Size(205, 51);
-            deleteUser.TabIndex = 9;
-            deleteUser.Text = "Delete User";
-            deleteUser.UseVisualStyleBackColor = false;
-            // 
             // modifyUser
             // 
             modifyUser.BackColor = Color.LightSteelBlue;
@@ -105,18 +93,33 @@
             modifyUser.Text = "Modify User";
             modifyUser.UseVisualStyleBackColor = false;
             // 
+            // salesButton
+            // 
+            salesButton.BackColor = Color.LightSteelBlue;
+            salesButton.Cursor = Cursors.Hand;
+            salesButton.FlatStyle = FlatStyle.Popup;
+            salesButton.Font = new Font("Impact", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            salesButton.ForeColor = Color.Black;
+            salesButton.Location = new Point(37, 333);
+            salesButton.Name = "salesButton";
+            salesButton.Size = new Size(205, 51);
+            salesButton.TabIndex = 9;
+            salesButton.Text = "Sales Report";
+            salesButton.UseVisualStyleBackColor = false;
+            // 
             // adminDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(800, 450);
-            Controls.Add(deleteUser);
+            Controls.Add(salesButton);
             Controls.Add(modifyUser);
             Controls.Add(viewUser);
             Controls.Add(CreateUser);
             Controls.Add(logOut);
             Name = "adminDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin Dashboard";
             ResumeLayout(false);
         }
@@ -126,7 +129,8 @@
         private Button logOut;
         private Button CreateUser;
         private Button viewUser;
-        private Button deleteUser;
         private Button modifyUser;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button salesButton;
     }
 }

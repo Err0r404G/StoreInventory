@@ -16,5 +16,13 @@ namespace StoreInventoryPos
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginPage back = new LoginPage(); // Back
+            back.Show();
+
+        }
     }
 }

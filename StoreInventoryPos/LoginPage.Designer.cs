@@ -127,7 +127,7 @@
             Controls.Add(userName);
             Controls.Add(label1);
             Name = "LoginPage";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginPage";
             ResumeLayout(false);
             PerformLayout();

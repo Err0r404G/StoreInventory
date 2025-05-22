@@ -10,20 +10,18 @@ using System.Windows.Forms;
 
 namespace StoreInventoryPos
 {
-    public partial class managerDashboard : Form
+    public partial class addProduct : Form
     {
-        public managerDashboard()
+        public addProduct()
         {
             InitializeComponent();
         }
-        private void LogoutButton_Click(object sender, EventArgs e)
+
+        private void backButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LoginPage back = new LoginPage(); // Back
-            back.Show();
-
+            inventoryManagement Back = new inventoryManagement();
+            Back.Show();
         }
     }
-
-
-    }
+}

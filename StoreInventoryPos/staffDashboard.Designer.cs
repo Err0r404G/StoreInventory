@@ -104,6 +104,7 @@
             button1.TabIndex = 17;
             button1.Text = "Log Out";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // staffDashboard
             // 
