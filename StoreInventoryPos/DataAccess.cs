@@ -33,41 +33,46 @@ namespace WFAManagementPro
             set { this.ds = value; }
         }
 
+        private readonly string connectionString = @"Data Source=VICTUS-20H5\SQLEXPRESS;Initial Catalog=ShoeStorePOS;Persist Security Info=True;User ID=sa;Password=@1812;";
+
         public DataAccess()
         {
-            this.Sqlcon = new SqlConnection(@"Data Source=VICTUS-20H5\SQLEXPRESS;Initial Catalog=ShoeStorePOS;Persist Security Info=True;User ID=sa;Password=@1812;");
+            this.Sqlcon = new SqlConnection(connectionString);
             this.Sqlcon.Open();
         }
 
-       /* private void QueryText(string query)
-        {
-            this.Sqlcom = new SqlCommand(query, this.Sqlcon);
-        }
+        /* private void QueryText(string query)
+         {
+             this.Sqlcom = new SqlCommand(query, this.Sqlcon);
+         }
 
-        public DataSet ExecuteQuery(string sql)
-        {
-            try
-            {
-                this.QueryText(sql);
-                this.Sda = new SqlDataAdapter(this.Sqlcom);
-                this.Ds = new DataSet();
-                this.Sda.Fill(this.Ds);
-                return this.Ds;
-            }
-            catch (Exception exc)
-            {
-                return null;
-            }
-        }
+         public DataSet ExecuteQuery(string sql)
+         {
+             try
+             {
+                 this.QueryText(sql);
+                 this.Sda = new SqlDataAdapter(this.Sqlcom);
+                 this.Ds = new DataSet();
+                 this.Sda.Fill(this.Ds);
+                 return this.Ds;
+             }
+             catch (Exception exc)
+             {
+                 return null;
+             }
+         }
 
-        public int ExecuteUpdateQuery(string sql)
-        {
-            this.QueryText(sql);
-            int u = this.Sqlcom.ExecuteNonQuery();
-            return u;
-        }
-       */
+         public int ExecuteUpdateQuery(string sql)
+         {
+             this.QueryText(sql);
+             int u = this.Sqlcom.ExecuteNonQuery();
+             return u;
+         }
+        */
         //Query Function
+
+
+        // Create User DataBase
         public int InsertUser(string username, string password, string fullname, string role)
         {
             string sql = "INSERT INTO [dbo].[Users] (Username, Password,Fullname,Role) VALUES (@username, @password,@fullname,@role)";
@@ -81,7 +86,7 @@ namespace WFAManagementPro
             Console.WriteLine(username + " " + password + " " + fullname + " " + role); 
             return cmd.ExecuteNonQuery();
         }
-
+        // Login Validation
         public bool ValidateUser(string username, string password, out string role)
         {
             role = string.Empty;
@@ -100,6 +105,39 @@ namespace WFAManagementPro
                 }
             }
             return false; // Login failed
+        }
+
+        // Get all users from DB
+        public DataTable getUser()
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT Username, Fullname, Role FROM [dbo].[Users]";
+
+            using (SqlCommand cmd = new SqlCommand(query, this.Sqlcon))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+            {
+                adapter.Fill(dataTable);
+            }
+
+            return dataTable;
+        }
+
+        public DataTable SearchUsersByUsername(string username)
+        {
+            DataTable dataTable = new DataTable();
+            string query = "SELECT Username, Fullname, Role FROM [dbo].[Users] WHERE Username LIKE @username";
+
+            using (SqlCommand cmd = new SqlCommand(query, this.Sqlcon))
+            {
+                cmd.Parameters.AddWithValue("@username", "%" + username + "%"); 
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dataTable);
+                }
+            }
+
+            return dataTable;
         }
 
 

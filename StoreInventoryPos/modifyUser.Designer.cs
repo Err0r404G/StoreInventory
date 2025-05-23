@@ -28,13 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             backButton = new Button();
-            searchGrid = new DataGridView();
-            SelectButton = new DataGridViewButtonColumn();
-            USERNAME = new DataGridViewTextBoxColumn();
-            fNAME = new DataGridViewTextBoxColumn();
-            role = new DataGridViewTextBoxColumn();
             searchField = new TextBox();
             SearchLabel = new Label();
             fNameLabel = new Label();
@@ -48,6 +42,8 @@
             roleBox = new ComboBox();
             roleLabel = new Label();
             searchButton = new Button();
+            searchGrid = new DataGridView();
+            button = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)searchGrid).BeginInit();
             SuspendLayout();
             // 
@@ -65,60 +61,6 @@
             backButton.Text = "BACK";
             backButton.UseVisualStyleBackColor = false;
             backButton.Click += backButton_Click;
-            // 
-            // searchGrid
-            // 
-            searchGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            searchGrid.Columns.AddRange(new DataGridViewColumn[] { SelectButton, USERNAME, fNAME, role });
-            searchGrid.GridColor = SystemColors.ActiveCaption;
-            searchGrid.Location = new Point(53, 79);
-            searchGrid.Name = "searchGrid";
-            searchGrid.RowHeadersWidth = 51;
-            searchGrid.ScrollBars = ScrollBars.Vertical;
-            searchGrid.Size = new Size(584, 335);
-            searchGrid.TabIndex = 9;
-            // 
-            // SelectButton
-            // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.Transparent;
-            SelectButton.DefaultCellStyle = dataGridViewCellStyle1;
-            SelectButton.Frozen = true;
-            SelectButton.HeaderText = "Select";
-            SelectButton.MinimumWidth = 6;
-            SelectButton.Name = "SelectButton";
-            SelectButton.Resizable = DataGridViewTriState.True;
-            SelectButton.SortMode = DataGridViewColumnSortMode.Automatic;
-            SelectButton.Text = "Select";
-            SelectButton.Width = 60;
-            // 
-            // USERNAME
-            // 
-            USERNAME.Frozen = true;
-            USERNAME.HeaderText = "USERNAME";
-            USERNAME.MinimumWidth = 6;
-            USERNAME.Name = "USERNAME";
-            USERNAME.ReadOnly = true;
-            USERNAME.Resizable = DataGridViewTriState.True;
-            USERNAME.Width = 145;
-            // 
-            // fNAME
-            // 
-            fNAME.Frozen = true;
-            fNAME.HeaderText = "FULL NAME";
-            fNAME.MinimumWidth = 6;
-            fNAME.Name = "fNAME";
-            fNAME.ReadOnly = true;
-            fNAME.Width = 200;
-            // 
-            // role
-            // 
-            role.Frozen = true;
-            role.HeaderText = "ROLE";
-            role.MinimumWidth = 6;
-            role.Name = "role";
-            role.ReadOnly = true;
-            role.Width = 125;
             // 
             // searchField
             // 
@@ -271,11 +213,29 @@
             searchButton.UseVisualStyleBackColor = false;
             searchButton.Click += searchButton_Click;
             // 
+            // searchGrid
+            // 
+            searchGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            searchGrid.Columns.AddRange(new DataGridViewColumn[] { button });
+            searchGrid.Location = new Point(53, 90);
+            searchGrid.Name = "searchGrid";
+            searchGrid.RowHeadersWidth = 51;
+            searchGrid.Size = new Size(491, 318);
+            searchGrid.TabIndex = 29;
+            // 
+            // button
+            // 
+            button.HeaderText = "Select";
+            button.MinimumWidth = 6;
+            button.Name = "button";
+            button.Width = 60;
+            // 
             // modifyUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1273, 537);
+            Controls.Add(searchGrid);
             Controls.Add(searchButton);
             Controls.Add(roleBox);
             Controls.Add(roleLabel);
@@ -289,7 +249,6 @@
             Controls.Add(fNameLabel);
             Controls.Add(searchField);
             Controls.Add(SearchLabel);
-            Controls.Add(searchGrid);
             Controls.Add(backButton);
             Name = "modifyUser";
             StartPosition = FormStartPosition.CenterScreen;
@@ -302,7 +261,6 @@
         #endregion
 
         private Button backButton;
-        private DataGridView searchGrid;
         private TextBox searchField;
         private Label SearchLabel;
         private Label fNameLabel;
@@ -316,9 +274,7 @@
         private ComboBox roleBox;
         private Label roleLabel;
         private Button searchButton;
-        private DataGridViewButtonColumn SelectButton;
-        private DataGridViewTextBoxColumn USERNAME;
-        private DataGridViewTextBoxColumn fNAME;
-        private DataGridViewTextBoxColumn role;
+        private DataGridView searchGrid;
+        private DataGridViewButtonColumn button;
     }
 }

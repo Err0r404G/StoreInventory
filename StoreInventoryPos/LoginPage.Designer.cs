@@ -92,6 +92,7 @@
             passWordField.BackColor = SystemColors.ControlLightLight;
             passWordField.BorderStyle = BorderStyle.FixedSingle;
             passWordField.Cursor = Cursors.IBeam;
+            passWordField.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             passWordField.Location = new Point(250, 243);
             passWordField.Multiline = true;
             passWordField.Name = "passWordField";
