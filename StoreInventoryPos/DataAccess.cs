@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WFAManagementPro
 {
@@ -75,7 +76,7 @@ namespace WFAManagementPro
         // Create User DataBase
         public int InsertUser(string username, string password, string fullname, string role)
         {
-            string sql = "INSERT INTO [dbo].[Users] (Username, Password,Fullname,Role) VALUES (@username, @password,@fullname,@role)";
+            string sql = "INSERT INTO Users (Username, Password,Fullname,Role) VALUES (@username, @password,@fullname,@role)";
             SqlCommand cmd = new SqlCommand(sql, this.Sqlcon);
 
             cmd.Parameters.AddWithValue("@username", username);
@@ -83,14 +84,33 @@ namespace WFAManagementPro
             cmd.Parameters.AddWithValue("@fullname", fullname);
             cmd.Parameters.AddWithValue("@role", role);
 
-            Console.WriteLine(username + " " + password + " " + fullname + " " + role); 
+            Console.WriteLine(username + " " + password + " " + fullname + " " + role);
             return cmd.ExecuteNonQuery();
         }
+
+
+        // Add Product DataBase
+        public int InsertProduct(string productname, double cost, double price, int quantity, string size)
+        {
+            string sql = "INSERT INTO Product (ProductName, Cost, Price, Quantity, Size) VALUES (@Productname, @Cost, @Price, @Quantity, @Size)";
+            SqlCommand cmd = new SqlCommand(sql, this.Sqlcon);
+
+            cmd.Parameters.AddWithValue("@ProductName", productname);
+            cmd.Parameters.AddWithValue("@Cost", cost);
+            cmd.Parameters.AddWithValue("@Price", price);
+            cmd.Parameters.AddWithValue("@Quantity", quantity);
+            cmd.Parameters.AddWithValue("@Size", size);
+
+            Console.WriteLine($"{productname} {cost} {price} {quantity} {size}");
+            return cmd.ExecuteNonQuery();
+        }
+
+
         // Login Validation
         public bool ValidateUser(string username, string password, out string role)
         {
             role = string.Empty;
-            string sql = "SELECT Role FROM [dbo].[Users] WHERE Username = @username AND Password = @password";
+            string sql = "SELECT Role FROM Users WHERE Username = @username AND Password = @password";
             SqlCommand cmd = new SqlCommand(sql, this.Sqlcon);
 
             cmd.Parameters.AddWithValue("@username", username);
@@ -111,7 +131,7 @@ namespace WFAManagementPro
         public DataTable getUser()
         {
             DataTable dataTable = new DataTable();
-            string query = "SELECT Username, Fullname, Role FROM [dbo].[Users]";
+            string query = "SELECT Username, Fullname, Role FROM Users";
 
             using (SqlCommand cmd = new SqlCommand(query, this.Sqlcon))
             using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
@@ -125,7 +145,7 @@ namespace WFAManagementPro
         public DataTable SearchUsersByUsername(string username)
         {
             DataTable dataTable = new DataTable();
-            string query = "SELECT Username, Fullname, Role FROM [dbo].[Users] WHERE Username LIKE @username";
+            string query = "SELECT Username, Fullname, Role FROM Users WHERE Username LIKE @username";
 
             using (SqlCommand cmd = new SqlCommand(query, this.Sqlcon))
             {

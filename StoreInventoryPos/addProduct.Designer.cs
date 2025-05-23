@@ -37,8 +37,6 @@
             sizeLabel = new Label();
             costField = new TextBox();
             costLabel = new Label();
-            pIDField = new TextBox();
-            productIDLabel = new Label();
             productName = new Label();
             pNameField = new TextBox();
             quantityLabel = new Label();
@@ -66,6 +64,7 @@
             sizeBox.Location = new Point(388, 288);
             sizeBox.Name = "sizeBox";
             sizeBox.Size = new Size(163, 28);
+            sizeBox.Sorted = true;
             sizeBox.TabIndex = 34;
             // 
             // backButton
@@ -114,6 +113,7 @@
             addButton.TabIndex = 30;
             addButton.Text = "ADD";
             addButton.UseVisualStyleBackColor = false;
+            addButton.Click += addButton_Click;
             // 
             // sizeLabel
             // 
@@ -143,29 +143,11 @@
             costLabel.TabIndex = 27;
             costLabel.Text = "Cost";
             // 
-            // pIDField
-            // 
-            pIDField.BorderStyle = BorderStyle.FixedSingle;
-            pIDField.Location = new Point(60, 118);
-            pIDField.Name = "pIDField";
-            pIDField.Size = new Size(290, 27);
-            pIDField.TabIndex = 26;
-            // 
-            // productIDLabel
-            // 
-            productIDLabel.AutoSize = true;
-            productIDLabel.Font = new Font("Impact", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            productIDLabel.Location = new Point(60, 87);
-            productIDLabel.Name = "productIDLabel";
-            productIDLabel.Size = new Size(110, 28);
-            productIDLabel.TabIndex = 25;
-            productIDLabel.Text = "Product ID";
-            // 
             // productName
             // 
             productName.AutoSize = true;
             productName.Font = new Font("Impact", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            productName.Location = new Point(386, 87);
+            productName.Location = new Point(60, 88);
             productName.Name = "productName";
             productName.Size = new Size(144, 28);
             productName.TabIndex = 24;
@@ -174,9 +156,9 @@
             // pNameField
             // 
             pNameField.BorderStyle = BorderStyle.FixedSingle;
-            pNameField.Location = new Point(386, 121);
+            pNameField.Location = new Point(60, 119);
             pNameField.Name = "pNameField";
-            pNameField.Size = new Size(290, 27);
+            pNameField.Size = new Size(616, 27);
             pNameField.TabIndex = 23;
             // 
             // quantityLabel
@@ -212,8 +194,6 @@
             Controls.Add(sizeLabel);
             Controls.Add(costField);
             Controls.Add(costLabel);
-            Controls.Add(pIDField);
-            Controls.Add(productIDLabel);
             Controls.Add(productName);
             Controls.Add(pNameField);
             Controls.Add(nameLabel);
@@ -234,8 +214,6 @@
         private Label sizeLabel;
         private TextBox costField;
         private Label costLabel;
-        private TextBox pIDField;
-        private Label productIDLabel;
         private Label productName;
         private TextBox pNameField;
         private Label quantityLabel;
